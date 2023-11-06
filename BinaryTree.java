@@ -20,7 +20,7 @@ public class BinaryTree {
 
     // insert elements
     public void populate(Scanner scanner) {
-        System.out.println("Enter the root Node: ");
+        System.out.print("Enter the root Node: ");
         int value = scanner.nextInt();
         root = new Node(value);
         populate(scanner, root);
@@ -28,19 +28,19 @@ public class BinaryTree {
 
     private void populate(Scanner scanner, Node node) {
 
-        System.out.println("Do you want to enter left of " + node.value);
+        System.out.print("Do you want to enter left of " + node.value + " ? : ");
         boolean left = scanner.nextBoolean();
         if (left) {
-            System.out.println("Enter the value of left of " + node.value);
+            System.out.print("Enter the value of left of " + node.value + " : ");
             int value = scanner.nextInt();
             node.left = new Node(value);
             populate(scanner, node.left);
         }
 
-        System.out.println("Do you want to enter right of " + node.value);
+        System.out.print("Do you want to enter right of " + node.value + " ? : ");
         boolean right = scanner.nextBoolean();
         if (right) {
-            System.out.println("Enter the value of right of " + node.value);
+            System.out.print("Enter the value of right of " + node.value + " : ");
             int value = scanner.nextInt();
             node.right = new Node(value);
             populate(scanner, node.right);
@@ -52,7 +52,7 @@ public class BinaryTree {
     }
 
     private void display(Node node, String indent) {
-        if(node == null){
+        if (node == null) {
             return;
         }
         System.out.println(indent + node.value);
