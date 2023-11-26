@@ -1,68 +1,53 @@
 
-class StackExp extends Exception {
-    public StackExp(String msg){
-        super(msg);
-    }
-}
-
 public class MyStack {
-    protected int[] data;
-    private static final int DEFAULT_SIZE = 10;
+
+    static final int size = 1000;
+    int[] data = new int[size];
 
     // pointer
     int ptr = -1;
 
-    public MyStack() {
-        this.data = new int[DEFAULT_SIZE];
+    // is array is full
+    public boolean isFull() {
+        return ptr > size - 1;
     }
 
-    public MyStack(int size) {
-        this.data = new int[size];
-    }
-
-
-    // Peek 
-    public int peek() throws StackExp{
-        if (isEmpty()) {
-            throw new StackExp("Can not peek, Stack is Empty.");
-        }
-        return data[ptr];
-    }
-
-
-    // remove item
-    public int pop() throws StackExp {
-        if (isEmpty()) {
-            throw new StackExp("Stack is Empty.");
-        }
-        int remove = data[ptr];
-        ptr--;
-        return remove;
+    // is array is empty
+    public boolean isEmpty() {
+        return ptr < 0;
     }
 
     // add item
     public boolean push(int item) {
         if (isFull()) {
-            System.out.println("Stack is full.");
+            System.out.println("Stack overflow");
             return false;
         }
-        ptr++;
-        data[ptr] = item;
+
+        data[++ptr] = item;
         return true;
     }
-    
 
-    public boolean isFull() {
-        return data.length - 1 == ptr;
+    // remove item
+    public int pop() {
+        if (isEmpty()) {
+            System.out.println("Stack underflow");
+            return 0;
+        }
+
+        return data[ptr--];
     }
 
-    public boolean isEmpty() {
-        return ptr == -1;
+    // Peek
+    public int peek() {
+        if (isEmpty()) {
+            System.out.println("Stack underflow");
+            return 0;
+        }
+        return data[ptr];
     }
 
-
-
-    public static void main(String[] args) throws StackExp {
+    public static void main(String[] args) {
         MyStack stk = new MyStack();
 
         stk.push(11);
@@ -74,11 +59,6 @@ public class MyStack {
         System.out.println(stk.pop());
         System.out.println(stk.pop());
         System.out.println(stk.pop());
-        System.out.println(stk.pop());
-        System.out.println(stk.pop());
-        System.out.println(stk.pop());
 
     }
-
-
 }
