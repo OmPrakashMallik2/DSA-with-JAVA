@@ -12,6 +12,8 @@ public class QueueUsingLinkedList {
         System.out.println(q.getTop());
         q.deQueue();
         System.out.println(q.getTop());
+        boolean b = q.isEmpty();
+        System.out.println(b);
 
     }
 }
