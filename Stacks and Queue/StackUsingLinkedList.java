@@ -2,9 +2,27 @@ import java.util.LinkedList;
 
 public class StackUsingLinkedList {
 
+    public static void main(String[] args) {
+        System.out.println("STACK USING LINKEDLIST XD");
+
+        Stack s = new Stack();
+
+        s.push(10);
+        s.push(12);
+        s.push(14);
+
+        s.print();
+        s.pop();
+        s.print();
+        System.out.println(s.peek());
+    }
+}
+
+class Stack {
+
     LinkedList<Integer> list;
 
-    public StackUsingLinkedList() {
+    public Stack() {
         list = new LinkedList<>();
     }
 
@@ -43,18 +61,4 @@ public class StackUsingLinkedList {
         return list.size();
     }
 
-    public static void main(String[] args) {
-        System.out.println("STACK USING LINKEDLIST XD");
-
-        StackUsingLinkedList s = new StackUsingLinkedList();
-
-        s.push(10);
-        s.push(12);
-        s.push(14);
-
-        s.print();
-        s.pop();
-        s.print();
-        System.out.println(s.peek());
-    }
 }
