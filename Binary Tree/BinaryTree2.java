@@ -1,4 +1,3 @@
-package Tree;
 import java.util.*;
 
 public class BinaryTree2 {
@@ -121,6 +120,7 @@ public class BinaryTree2 {
 
         int count = sumOfNodes(root);
         System.out.println(count);
-        
+
     }
 }
+
